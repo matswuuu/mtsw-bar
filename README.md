@@ -1,0 +1,2 @@
+# mtsw-bar
+Quickshell bar
