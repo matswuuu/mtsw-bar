@@ -11,12 +11,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, quickshell, ... }:
+  outputs = inputs@{ self, nixpkgs, quickshell, ... }:
     let
       system = "x86_64-linux";
-      specialArgs = {
-        quickshell = inputs.mtsw-bar.quickshell;
-      };
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       quickshell = quickshell;
@@ -60,9 +57,6 @@
         qtwebsockets = pkgs.qt6.qtwebsockets;
         qtwebview = pkgs.qt6.qtwebview;
       };
-      packages.${system}.default = pkgs.writeShellScriptBin "mtsw-bar" ''
-        ${quickshell.packages.${system}.quickshell}/bin/quickshell -p ${./shell.qml} "$@"
-      '';
 
       nixosModules.mtsw-bar = import ./module.nix;
     };
