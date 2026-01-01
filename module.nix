@@ -1,4 +1,4 @@
-{ config, pkgs, lib, quickshell, ... }:
+{ config, pkgs, lib, ... }:
   let
     qt6 = pkgs.qt6Packages;
     kde = pkgs.kdePackages;
@@ -53,7 +53,7 @@
     };
   };
 
-  environment.systemPackages = [ quickshell.packages.${pkgs.system}.quickshell ] ++ libs;
+  environment.systemPackages = [ pkgs.quickshell ] ++ libs;
 
   systemd.user.services.mtsw-bar = {
     description = "mtsw Quickshell bar";
@@ -61,7 +61,7 @@
     after = [ "graphical-session.target" ];
     serviceConfig = {
       Restart = "on-failure";
-      ExecStart = "${quickshell.packages.${pkgs.system}.quickshell}/bin/quickshell -p /etc/xdg/quickshell/shell.qml";
+      ExecStart = "${pkgs.quickshell}/bin/quickshell -p /etc/xdg/quickshell/shell.qml";
       Environment = [
         "QML_IMPORT_PATH=${qmlPath}"
         "QT_PLUGIN_PATH=${pluginPath}"
