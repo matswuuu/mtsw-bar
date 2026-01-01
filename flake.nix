@@ -58,7 +58,6 @@
         qtwebview = pkgs.qt6.qtwebview;
       };
 
-      homeManagerModules.mtsw-bar = import ./hm-mtsw-bar.nix;
-      # nixosModules.mtsw-bar = import ./module.nix;
+      homeModules.mtsw-bar = import ./hm-mtsw-bar.nix;
     };
 }
