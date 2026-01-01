@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
-  let
-    qt6 = pkgs.qt6Packages;
+
+let
+  cfg = config.programs.mtsw-bar;
+  qt6 = pkgs.qt6Packages;
     kde = pkgs.kdePackages;
     libs = with pkgs; [
       qt6.qt3d
@@ -44,27 +46,41 @@
 
     qmlPath = builtins.concatStringsSep ":" (map (p: "${p}/lib/qt-6/qml") libs);
     pluginPath = builtins.concatStringsSep ":" (map (p: "${p}/lib/qt-6/plugins") libs);
-  in
+in
 {
-  environment.etc = {
-    "xdg/quickshell" = {
-      source = ./src;
-    };
+  options.programs.mtsw-bar = {
+    enable = lib.mkEnableOption "mtsw Quickshell bar";
   };
 
-  environment.systemPackages = [ pkgs.quickshell ] ++ libs;
+  config = lib.mkIf cfg.enable {
 
-  # systemd.user.services.mtsw-bar = {
-  #   description = "mtsw Quickshell bar";
-  #   wantedBy = [ "default.target" ];
-  #   after = [ "graphical-session.target" ];
-  #   serviceConfig = {
-  #     Restart = "on-failure";
-  #     ExecStart = "${pkgs.quickshell}/bin/quickshell -p /etc/xdg/quickshell/shell.qml";
-  #     Environment = [
-  #       "QML_IMPORT_PATH=${qmlPath}"
-  #       "QT_PLUGIN_PATH=${pluginPath}"
-  #     ];
-  #   };
-  # };
+    # Install Quickshell
+    home.packages = [
+      pkgs.quickshell
+    ];
+
+    # Install config
+    home.file.".config/quickshell".source = ./src;
+
+    # User service
+    systemd.user.services.mtsw-bar = {
+      Unit = {
+        Description = "mtsw Quickshell bar";
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = "${pkgs.quickshell}/bin/quickshell -p %h/.config/quickshell/shell.qml";
+        Environment = [
+          "QML_IMPORT_PATH=${qmlPath}"
+          "QT_PLUGIN_PATH=${pluginPath}"
+        ];
+        Restart = "on-failure";
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+    };
+  };
 }
