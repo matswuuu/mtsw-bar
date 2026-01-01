@@ -50,7 +50,6 @@
   environment.etc = {
     "xdg/quickshell" = {
       source = ./src;
-      recursive = true;
     };
   };
 
