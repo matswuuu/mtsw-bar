@@ -1,14 +1,14 @@
 { self }: { config, lib, pkgs, ... }:
 
 let
-  cfg = config.programs.my-quickshell-bar;
+  cfg = config.programs.mtsw-bar;
   # Generate a config file that Quickshell can read (e.g., as JSON)
   configJson = pkgs.writeText "bar-settings.json" (builtins.toJSON {
     color = cfg.color;
     position = cfg.position;
   });
 in {
-  options.programs.my-quickshell-bar = {
+  options.programs.mtsw-bar = {
     enable = lib.mkEnableOption "Quickshell Bar";
     color = lib.mkOption {
       type = lib.types.str;
@@ -26,6 +26,6 @@ in {
     home.packages = [ self.packages.${pkgs.system}.default ];
     
     # Pass settings to your QML by symlinking the generated config
-    home.file.".config/my-bar/settings.json".source = configJson;
+    home.file.".config/mtsw-bar/settings.json".source = configJson;
   };
 }
