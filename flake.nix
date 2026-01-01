@@ -14,6 +14,9 @@
   outputs = { self, nixpkgs, quickshell, ... }:
     let
       system = "x86_64-linux";
+      specialArgs = {
+        quickshell = inputs.mtsw-bar.quickshell;
+      };
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       quickshell = quickshell;
@@ -61,6 +64,6 @@
         ${quickshell.packages.${system}.quickshell}/bin/quickshell -p ${./shell.qml} "$@"
       '';
 
-      nixosModules.${system}.mtsw-bar = import ./module.nix;
+      nixosModules.mtsw-bar = import ./module.nix;
     };
 }
