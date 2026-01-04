@@ -25,7 +25,7 @@ ResourceWidget {
             "stepX": 10,
             "maxX": CpuUsage.maxHistory,
             "maxY": CpuUsage.maxTemp,
-            "history": CpuUsage.usageHistory
+            "history": CpuUsage.tempHistory
         },
         {
             "title": "CPU Frequency (MHz)",
