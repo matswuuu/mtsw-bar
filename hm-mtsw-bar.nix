@@ -67,10 +67,11 @@ in
       file.".config/quickshell".source = ./src;
     };
 
-    xdg.configFile.".config/quickshell/config.json".text =
+    xdg.configFile."quickshell/config.json".text =
       builtins.toJSON {
         monitors = cfg.monitors;
       };
+
 
     systemd.user.services.mtsw-bar = {
       Unit = {
