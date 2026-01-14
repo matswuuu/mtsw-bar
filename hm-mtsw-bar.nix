@@ -64,13 +64,20 @@ in
       packages = [
         pkgs.quickshell
       ];
-      file.".config/quickshell".source = ./src;
+      # file.".config/quickshell".source = ./src;
     };
 
-    xdg.configFile."quickshell/config.json".text =
-      builtins.toJSON {
-        monitors = cfg.monitors;
-      };
+    # xdg.configFile."quickshell/config.json".text =
+    #   builtins.toJSON {
+    #     monitors = cfg.monitors;
+    #   };
+
+  xdg.configFile."quickshell/shell.qml".source = ./src/shell.qml;
+
+  xdg.configFile."quickshell/config.json".text =
+    builtins.toJSON {
+      monitors = cfg.monitors;
+    };
 
 
     systemd.user.services.mtsw-bar = {
