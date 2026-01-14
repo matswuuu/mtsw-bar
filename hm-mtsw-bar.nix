@@ -48,21 +48,29 @@ let
     pluginPath = builtins.concatStringsSep ":" (map (p: "${p}/lib/qt-6/plugins") libs);
 in
 {
-  options.programs.mtsw-bar = {
-    enable = lib.mkEnableOption "mtsw Quickshell bar";
+  options = {
+    programs.mtsw-bar = {
+        enable = lib.mkEnableOption "mtsw Quickshell bar";
+
+      monitors = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        description = "List of monitors for the bar";
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {
+    home = {
+      packages = [
+        pkgs.quickshell
+      ];
+      file.".config/quickshell".source = ./src;
+      file.".config/quickshell/config.json".text =
+        builtins.toJSON {
+          monitors = cfg.monitors;
+        };
+    };
 
-    # Install Quickshell
-    home.packages = [
-      pkgs.quickshell
-    ];
-
-    # Install config
-    home.file.".config/quickshell".source = ./src;
-
-    # User service
     systemd.user.services.mtsw-bar = {
       Unit = {
         Description = "mtsw Quickshell bar";

@@ -53,18 +53,4 @@
   };
 
   environment.systemPackages = [ pkgs.quickshell ] ++ libs;
-
-  # systemd.user.services.mtsw-bar = {
-  #   description = "mtsw Quickshell bar";
-  #   wantedBy = [ "default.target" ];
-  #   after = [ "graphical-session.target" ];
-  #   serviceConfig = {
-  #     Restart = "on-failure";
-  #     ExecStart = "${pkgs.quickshell}/bin/quickshell -p /etc/xdg/quickshell/shell.qml";
-  #     Environment = [
-  #       "QML_IMPORT_PATH=${qmlPath}"
-  #       "QT_PLUGIN_PATH=${pluginPath}"
-  #     ];
-  #   };
-  # };
 }
