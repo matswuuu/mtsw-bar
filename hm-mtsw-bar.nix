@@ -64,21 +64,15 @@ in
       packages = [
         pkgs.quickshell
       ];
-      # file.".config/quickshell".source = ./src;
+      file.".config/mtsw-bar/src" = {
+        source = ./src;
+        recursive = true;
+      };
+      file.".config/mtsw-bar/config.json".text = 
+        builtins.toJSON {
+          monitors = cfg.monitors;
+        };
     };
-
-    # xdg.configFile."quickshell/config.json".text =
-    #   builtins.toJSON {
-    #     monitors = cfg.monitors;
-    #   };
-
-  xdg.configFile."quickshell/shell.qml".source = ./src/shell.qml;
-
-  xdg.configFile."quickshell/config.json".text =
-    builtins.toJSON {
-      monitors = cfg.monitors;
-    };
-
 
     systemd.user.services.mtsw-bar = {
       Unit = {
@@ -87,7 +81,7 @@ in
       };
 
       Service = {
-        ExecStart = "${pkgs.quickshell}/bin/quickshell -p %h/.config/quickshell/shell.qml";
+        ExecStart = "${pkgs.quickshell}/bin/quickshell -p %h/.config/mtsw-bar/src/shell.qml";
         Environment = [
           "QML_IMPORT_PATH=${qmlPath}"
           "QT_PLUGIN_PATH=${pluginPath}"
