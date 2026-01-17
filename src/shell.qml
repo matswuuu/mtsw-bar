@@ -4,10 +4,9 @@ import Quickshell
 import "./element/"
 
 ShellRoot {
-  property list<string> monitors: ["DP-1", "eDP-1"]
 
   Variants {
-    model: Quickshell.screens.filter(monitor => monitors.includes(monitor.name))
+    model: Quickshell.screens.filter(monitor => Config.config.monitors.includes(monitor.name))
 
     Scope {
       required property var modelData
@@ -15,10 +14,6 @@ ShellRoot {
       Bar {
         id: bar
         screen: modelData
-
-        Text {
-          text: Config.test
-        }
       }
 
       ScreenOverlay {

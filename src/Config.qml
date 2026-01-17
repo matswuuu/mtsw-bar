@@ -1,32 +1,26 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Widgets
 import Quickshell.Io
+import QtCore
 import QtQuick
 
 Singleton {
-    property string test: "123" 
+    readonly property string homeDir: StandardPaths.writableLocation(
+        StandardPaths.HomeLocation
+    )
+    property var config: JSON.parse(configFile.text())
 
     FileView {
         id: configFile
-        path: Qt.resolvedUrl("/home/matswuuu/.config/mtsw-bar/config.json")
-        watchChanges: true
-        onFileChanged: {
-            print(configFile.text)
-        }
+        path: homeDir + "/.config/mtsw-bar/config.json"
     }
 
-    // JsonAdapter {
-    //     id: config
-    //     source: configFile.text
-    // }
-
     Timer {
-        interval: 1000
         running: true
         onTriggered: {
-            print(configFile.text)
+            print(Qt.application)
+            print(homeDir)
         }
     }
 }
