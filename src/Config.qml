@@ -15,12 +15,4 @@ Singleton {
         id: configFile
         path: homeDir + "/.config/mtsw-bar/config.json"
     }
-
-    Timer {
-        running: true
-        onTriggered: {
-            print(Qt.application)
-            print(homeDir)
-        }
-    }
 }
