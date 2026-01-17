@@ -1,31 +1,32 @@
+pragma Singleton
+
 import Quickshell
+import Quickshell.Widgets
+import Quickshell.Io
 import QtQuick
 
-Item {
+Singleton {
+    property string test: "123" 
+
     FileView {
         id: configFile
-        path: Qt.resolvedUrl("../config.json")
+        path: Qt.resolvedUrl("/home/matswuuu/.config/mtsw-bar/config.json")
         watchChanges: true
         onFileChanged: {
             print(configFile.text)
         }
     }
 
-    JsonAdapter {
-        id: config
-        source: configFile.text
-    }
+    // JsonAdapter {
+    //     id: config
+    //     source: configFile.text
+    // }
 
     Timer {
         interval: 1000
         running: true
         onTriggered: {
-            print("2 " + configFile.text)
+            print(configFile.text)
         }
-    }
-
-    Text {
-        anchors.centerIn: parent
-        text: "Theme: " + config.theme
     }
 }

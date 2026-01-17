@@ -15,6 +15,10 @@ ShellRoot {
       Bar {
         id: bar
         screen: modelData
+
+        Text {
+          text: Config.test
+        }
       }
 
       ScreenOverlay {
