@@ -67,7 +67,7 @@ WrapperRectangle {
             StyledProgressBar {
                 id: progressBar
                 implicitWidth: 180
-                value: root.value / 100
+                value: Math.min(root.value / 100, 1)
             }
         }
     }

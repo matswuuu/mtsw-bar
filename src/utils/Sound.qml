@@ -45,8 +45,9 @@ Singleton {
         stdout: SplitParser {
             onRead: data => {
                 const volMatch = data.match(/([0-9.]+)/)
-                const outputVolume = volMatch ? parseFloat(volMatch[0]) * 100.0 : 0
+                const outputVolume = volMatch ? Math.floor(parseFloat(volMatch[0]) * 100) : 0
                 const outputMuted = data.includes("[MUTED]")
+
                 if (outputVolume != root.outputVolume || outputMuted != root.outputMuted) {
                     root.outputVolume = outputVolume
                     root.outputMuted = outputMuted
