@@ -15,38 +15,42 @@ Singleton {
         "ru": "Russian"
     }
 
-    // Json object with keyboard properties 
-    property var keyboard 
     property string activeLayout: ""
     property var layouts: []
     property string translatedLayout: activeLayout in translations ? translations[activeLayout] : activeLayout
 
-    function changeLanguage() {
-        changeLanguage.running = true;
+    function nextLanguage() {
+        nextLanguage.running = true;
     }
 
     Process {
         id: fetchLayoutsProc
         running: true
-        command: ["hyprctl", "-j", "devices"]
+        command: ["niir", "msg", "--json", "keyboard-layouts"]
         stdout: StdioCollector {
             onStreamFinished: {
-                const parsedOutput = JSON.parse(this.text);
-                keyboard = parsedOutput["keyboards"].find(kb => kb.main === true);
-                layouts = keyboard["layout"].split(",");
-                activeLayout = layouts[keyboard.active_layout_index];
+                const json = JSON.parse(this.text);
+                layouts = json["names"]
+                const currentIndex = parseInt(json["current_idx"])
+                activeLayout = names[layouts]
             }
         }
     }
 
     Process {
-        id: changeLanguage
-        command: [
-            "hyprctl", 
-            "switchxkblayout", 
-            keyboard ? keyboard["name"] : "", 
-            "next"
-        ]
+        id: nextLanguage
+        command: ["niri", "msg", "action", "switch-layout", "next"]
+    }
+
+    Process {
+        running: true
+        command: ["niri", "msg", "--json", "event-stream"]
+        stdout: StdioCollector {
+            onRunningChanged: {
+                const json = JSON.parse(this.text);
+                print(json)
+            }
+        }
     }
 
     Connections {

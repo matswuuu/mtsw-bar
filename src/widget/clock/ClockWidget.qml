@@ -22,7 +22,7 @@ StyledPopup {
         calendar.monthOffset = 0
     }
     onClicked: {
-        currentFormat = currentFormat == simpleFormat ? fullFormat : simpleFormat;
+        currentFormat = currentFormat === simpleFormat ? fullFormat : simpleFormat;
     }
 
     WrapperRectangle {

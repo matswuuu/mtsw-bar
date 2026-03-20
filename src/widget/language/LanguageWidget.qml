@@ -19,22 +19,22 @@ StyledPopup {
             spacing: 8
 
             Repeater {
-                model: HyprlandXkb.layouts
+                model: Hyprland.layouts
                 delegate: StyledText {
-                    text: `${modelData} - ${HyprlandXkb.fullTranslations[modelData]}`
-                    color: modelData === HyprlandXkb.activeLayout ? theme.textColor2 : theme.textColor
+                    text: `${modelData} - ${Hyprland.fullTranslations[modelData]}`
+                    color: modelData === Hyprland.activeLayout ? theme.textColor2 : theme.textColor
                 }
             }
         }
     }
 
     onClicked: {
-        HyprlandXkb.changeLanguage();
+        LanguageAdapter.nextLanguage();
     }
 
     RowLayout {
         StyledText {
-            text: HyprlandXkb.translatedLayout
+            text: Hyprland.translatedLayout
         }
     }
 }

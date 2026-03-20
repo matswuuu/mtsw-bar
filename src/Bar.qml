@@ -7,8 +7,7 @@ import Quickshell.Io
 import "./element/"
 import "./utils/"
 import "./theme/"
-import "./modules/"
-import "./modules/resource/"
+import "./widget/"
 
 PanelWindow {
   id: root

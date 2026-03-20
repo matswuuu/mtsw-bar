@@ -5,7 +5,6 @@ import Quickshell.Io
 import Quickshell.Services.Mpris
 import QtQuick
 
-// TODO: Migrate to QtQuick.MediaPlayer
 Singleton {
     property list<var> players: Mpris.players.values
     property MprisPlayer activePlayer: players.length >= 1 ? players[0] : null
