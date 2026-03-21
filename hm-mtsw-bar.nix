@@ -50,11 +50,11 @@ in
 {
   options = {
     programs.mtsw-bar = {
-        enable = lib.mkEnableOption "mtsw Quickshell bar";
+      enable = lib.mkEnableOption "mtsw Quickshell bar";
 
-      monitors = lib.mkOption {
-        type = lib.types.listOf lib.types.str;
-        description = "List of monitors for the bar";
+      settings = lib.mkOption {
+        type = lib.types.attrs;
+        description = "Bar settings";
       };
     };
   };
@@ -69,9 +69,7 @@ in
         recursive = true;
       };
       file.".config/mtsw-bar/config.json".text = 
-        builtins.toJSON {
-          monitors = cfg.monitors;
-        };
+        builtins.toJSON cfg.settings;
     };
 
     systemd.user.services.mtsw-bar = {
