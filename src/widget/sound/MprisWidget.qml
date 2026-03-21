@@ -3,10 +3,10 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
-import "./../element/"
-import "./../utils/"
-import "./../theme/"
-import "./media/"
+import qs.element
+import qs.utils
+import qs.theme
+import qs.services.sound
 
 RowLayout {
     readonly property Theme theme: Themes.active

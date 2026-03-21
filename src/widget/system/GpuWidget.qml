@@ -4,8 +4,10 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import Quickshell
 import Quickshell.Widgets
-import "./../../element/"
-import "./../../utils/"
+import qs.widget
+import qs.element
+import qs.utils
+import qs.services.system
 
 ResourceWidget {
     visible: GpuUsage.isPresented

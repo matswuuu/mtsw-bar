@@ -6,9 +6,10 @@ import QtQuick.Controls.Material
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
-import "./../../element/"
-import "./../../utils/"
-import "./../../theme/"
+import qs.element
+import qs.utils
+import qs.theme
+import qs.services.sound
 
 WrapperRectangle {
     readonly property var theme: Themes.active

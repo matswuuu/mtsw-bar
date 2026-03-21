@@ -27,7 +27,6 @@ Singleton {
 
     Process {
         id: fetchLayoutsProc
-        running: true
         command: ["hyprctl", "-j", "devices"]
         stdout: StdioCollector {
             onStreamFinished: {
@@ -51,6 +50,8 @@ Singleton {
 
     Connections {
         target: Hyprland
+        enabled: Session.hyprland
+
         function onRawEvent(event) {
             if (event.name === "activelayout") {
                 fetchLayoutsProc.running = true;

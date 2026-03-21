@@ -1,0 +1,5 @@
+module qs.theme
+
+singleton Icons Icons.qml
+singleton Themes Themes.qml
+Theme Theme.qml

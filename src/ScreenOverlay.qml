@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "./utils/"
+import qs.utils
+import qs.widget
 
 PanelWindow {
     id: overlay

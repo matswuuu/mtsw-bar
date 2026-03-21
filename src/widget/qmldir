@@ -1,0 +1,23 @@
+module qs.widget
+
+BatteryWidget battery/BatteryWidget.qml
+BluetoothWidget bluetooth/BluetoothWidget.qml
+BrightnessIndicator brightness/BrightnessIndicator.qml
+CalendarWidget calendar/CalendarWidget.qml
+ClockWidget clock/ClockWidget.qml
+LanguageWidget language/LanguageWidget.qml
+NetworkWidget network/NetworkWidget.qml
+MprisWidget sound/MprisWidget.qml
+PlayerControl sound/PlayerControl.qml
+SoundWidget sound/SoundWidget.qml
+VolumeIndicator sound/VolumeIndicator.qml
+CpuWidget system/CpuWidget.qml
+GpuWidget system/GpuWidget.qml
+MemoryWidget system/MemoryWidget.qml
+ProcessViewer system/ProcessViewer.qml
+ResourceBlock system/ResourceBlock.qml
+ResourceWidget system/ResourceWidget.qml
+System system/System.qml
+UsageDiagram system/UsageDiagram.qml
+Tray tray/Tray.qml
+TrayItem tray/TrayItem.qml

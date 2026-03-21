@@ -1,0 +1,6 @@
+module qs.services.system
+
+singleton CpuUsage CpuUsage.qml
+singleton GpuUsage GpuUsage.qml
+singleton MemoryUsage MemoryUsage.qml
+singleton ProcessUsage ProcessUsage.qml

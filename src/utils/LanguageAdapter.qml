@@ -5,28 +5,25 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
-
-    readonly property string session: Quickshell.env("XDG_CURRENT_DESKTOP").toLowerCase()
-    readonly property boolean hyprland: session === "hyprland"
-    readonly property boolean niri: session === "niri"
-
-    property string currentLanguage
-
-    function getAdapter() {
-        if (hyprland) {
-            return Hyrpland;
-        } else if (niri) {
-            return Niri;
-        }
+    property var translations: {
+        "us": "eng",
+        "English (US)": "eng",
+        "ru": "ru",
+        "Russian": "ru"
+    }
+    property var fullTranslations: {
+        "us": "English (US)",
+        "English (US)": "English (US)",
+        "ru": "Russian",
+        "Russian": "Russian"
     }
 
+    property list<string> layouts: Session.getAdapter().layouts
+    property string activeLayout: Session.getAdapter().activeLayout
+    property string translatedLayout: activeLayout in translations ? translations[activeLayout] : activeLayout
+
     function nextLanguage() {
-        getAdapter().nextLanguage()
-        // if (hyprland) {
-        //     Hyrpland.nextLanguage();
-        // } else if (niri) {
-        //     Niri.nextLanguage();
-        // }
+        Session.getAdapter().nextLanguage()
     }
 
 }

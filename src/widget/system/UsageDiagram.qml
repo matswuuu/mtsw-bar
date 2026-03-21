@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell
-import "./../../element/"
+import qs.element
 
 Item {
     property var points: []

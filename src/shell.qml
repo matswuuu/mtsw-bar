@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "./element/"
+import qs.element
+import qs.config
 
 ShellRoot {
 

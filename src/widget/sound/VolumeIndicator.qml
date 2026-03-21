@@ -1,9 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "../../utils/"
+import qs.element.osd as Osd
+import qs.services.sound
+import qs.utils
 
-DisplayIndicator {
+Osd.DisplayIndicator {
     id: soundIndicator
     Layout.alignment: Qt.AlignHCenter
     title: "Volume"

@@ -4,10 +4,10 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Io
-import "./element/"
-import "./utils/"
-import "./theme/"
-import "./widget/"
+import qs.element
+import qs.utils
+import qs.theme
+import qs.widget
 
 PanelWindow {
   id: root

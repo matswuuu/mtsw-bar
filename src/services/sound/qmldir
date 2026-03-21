@@ -1,0 +1,4 @@
+module qs.services.sound
+
+singleton Sound Sound.qml
+singleton MprisUtil MprisUtil.qml

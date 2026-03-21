@@ -2,8 +2,8 @@ import Qt.labs.qmlmodels
 import QtQuick
 import Quickshell
 import Quickshell.Widgets
-import "./../../utils/"
-import "./../../element/"
+import qs.utils
+import qs.element
 
 TableView {
     // anchors.fill: parent

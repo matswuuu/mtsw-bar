@@ -4,9 +4,10 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
-import "./../element/"
-import "./../theme/"
-import "./../utils/"
+import qs.element
+import qs.theme
+import qs.utils
+import qs.services.battery
 
 StyledPopup {
     readonly property var theme: Themes.active

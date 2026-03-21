@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell
-import "./../theme/"
+import qs.theme
 
 Text {
     readonly property var theme: Themes.active

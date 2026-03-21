@@ -3,8 +3,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
-import "./../../element/"
-import "./../../theme/"
+import qs.element
+import qs.theme
 
 WrapperRectangle {
     readonly property var theme: Themes.active

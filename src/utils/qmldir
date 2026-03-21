@@ -1,0 +1,8 @@
+module qs.utils
+
+singleton Collection Collection.qml
+singleton Formatter Formatter.qml
+singleton Hyprland Hyprland.qml
+singleton LanguageAdapter LanguageAdapter.qml
+singleton Niri Niri.qml
+singleton Session Session.qml

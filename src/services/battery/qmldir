@@ -1,0 +1,3 @@
+module qs.services.battery
+
+singleton Battery Battery.qml

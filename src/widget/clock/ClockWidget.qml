@@ -2,9 +2,9 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
-import "./../element/"
-import "./../theme/"
-import "./calendar/"
+import qs.widget
+import qs.element
+import qs.theme
 
 StyledPopup {
     readonly property var theme: Themes.active

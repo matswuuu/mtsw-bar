@@ -2,9 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
-import "./../element/"
-import "./../theme/"
-import "./../utils/"
+import qs.element
+import qs.theme
+import qs.utils
+import qs.services.bluetooth
 
 StyledPopup {
     readonly property var theme: Themes.active

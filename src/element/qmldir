@@ -1,0 +1,10 @@
+module qs.element
+
+ClippedFilledCircularProgress ClippedFilledCircularProgress.qml
+MaterialSymbol MaterialSymbol.qml
+StyledImage StyledImage.qml
+StyledPopup StyledPopup.qml
+StyledProgressBar StyledProgressBar.qml
+StyledRectangularShadow StyledRectangularShadow.qml
+StyledText StyledText.qml
+SymbolButton SymbolButton.qml

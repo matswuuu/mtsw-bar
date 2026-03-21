@@ -68,8 +68,7 @@ in
         source = ./src;
         recursive = true;
       };
-      file.".config/mtsw-bar/config.json".text = 
-        builtins.toJSON cfg.settings;
+      file.".config/mtsw-bar/config.json".text = builtins.toJSON cfg.settings;
     };
 
     systemd.user.services.mtsw-bar = {

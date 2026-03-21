@@ -3,9 +3,9 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
-import "./../element/"
-import "./../theme/"
-import "./../utils/"
+import qs.element
+import qs.theme
+import qs.utils
 
 StyledPopup {
     readonly property var theme: Themes.active
@@ -19,10 +19,10 @@ StyledPopup {
             spacing: 8
 
             Repeater {
-                model: Hyprland.layouts
+                model: LanguageAdapter.layouts
                 delegate: StyledText {
-                    text: `${modelData} - ${Hyprland.fullTranslations[modelData]}`
-                    color: modelData === Hyprland.activeLayout ? theme.textColor2 : theme.textColor
+                    text: `${modelData} - ${LanguageAdapter.fullTranslations[modelData]}`
+                    color: modelData === LanguageAdapter.activeLayout ? theme.textColor2 : theme.textColor
                 }
             }
         }
@@ -34,7 +34,7 @@ StyledPopup {
 
     RowLayout {
         StyledText {
-            text: Hyprland.translatedLayout
+            text: LanguageAdapter.translatedLayout
         }
     }
 }

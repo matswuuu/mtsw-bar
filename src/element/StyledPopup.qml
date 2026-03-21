@@ -5,9 +5,9 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
-import "./../utils/"
-import "./../theme/"
-import "./../manager/"
+import qs.utils
+import qs.theme
+import qs.manager
 
 WrapperMouseArea {
     readonly property Theme theme: Themes.active

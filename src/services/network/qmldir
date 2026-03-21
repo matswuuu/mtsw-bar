@@ -1,0 +1,5 @@
+module qs.services.network
+
+singleton IpInfo IpInfo.qml
+singleton Network Network.qml
+singleton NetworkType NetworkType.qml

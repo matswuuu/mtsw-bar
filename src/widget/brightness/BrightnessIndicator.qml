@@ -1,9 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "../../utils/"
+import qs.element.osd as Osd
+import qs.services.brightness
+import qs.utils
 
-DisplayIndicator {
+Osd.DisplayIndicator {
     id: brightnessIndicator
     Layout.alignment: Qt.AlignHCenter
     title: "Brightness"
