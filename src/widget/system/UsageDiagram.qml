@@ -200,7 +200,7 @@ Item {
                         }
                     }
 
-                    if (closestPoint && closestPoint.x != -1 && closestPoint.y != -1) {
+                    if (closestPoint && closestPoint.x !== -1 && closestPoint.y !== -1) {
                         chartToolTip.text = I18n.t(
                             "chart.tooltip",
                             xFormatter(closestPoint.x),

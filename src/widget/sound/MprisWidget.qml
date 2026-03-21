@@ -25,7 +25,7 @@ RowLayout {
         }
         StyledText {
             text: "-"
-            visible: title != "" && artist != ""
+            visible: title !== "" && artist !== ""
         }
         StyledText {
             text: artist

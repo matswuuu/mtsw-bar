@@ -55,7 +55,7 @@ WrapperMouseArea {
         repeat: true
         onTriggered: {
             triggerHoverCount += interval;
-            if (triggerHoverCount == hoverCountTrigger) {
+            if (triggerHoverCount === hoverCountTrigger) {
                 show();
             }
         }

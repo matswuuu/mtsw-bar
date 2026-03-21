@@ -50,7 +50,7 @@ Singleton
                 const outputVolume = volMatch ? Math.floor(parseFloat(volMatch[0]) * 100) : 0
                 const outputMuted = data.includes("[MUTED]")
 
-                if (outputVolume != root.outputVolume || outputMuted != root.outputMuted) {
+                if (outputVolume !== root.outputVolume || outputMuted !== root.outputMuted) {
                     root.outputVolume = outputVolume
                     root.outputMuted = outputMuted
                     outputUpdated(outputVolume, outputMuted)

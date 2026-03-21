@@ -38,7 +38,7 @@ Singleton
         stdout: SplitParser {
             onRead: data => {
                 const currentBrightness = parseInt(data);
-                if (currentBrightness != root.currentBrightness) {
+                if (currentBrightness !== root.currentBrightness) {
                     root.currentBrightness = currentBrightness
                     brightnessChanged(currentBrightness, maxBrightness);
                 }

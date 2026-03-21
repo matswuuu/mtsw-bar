@@ -42,7 +42,7 @@ Singleton
     }
 
     Timer {
-        running: activePlayer && activePlayer.playbackState == MprisPlaybackState.Playing
+        running: activePlayer && activePlayer.playbackState === MprisPlaybackState.Playing
         interval: 1000
         repeat: true
         onTriggered: activePlayer.positionChanged()
