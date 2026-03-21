@@ -21,14 +21,8 @@ RowLayout {
         spacing: 4
 
         StyledText {
-            text: title
-        }
-        StyledText {
-            text: "-"
+            text: `${title}-${artist}`
             visible: title !== "" && artist !== ""
-        }
-        StyledText {
-            text: artist
         }
     }
 }
