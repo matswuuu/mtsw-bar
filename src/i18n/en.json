@@ -1,0 +1,42 @@
+{
+  "ui": {
+    "brightness": "Brightness",
+    "volume": "Volume",
+    "untitled": "Untitled",
+    "unknown": "Unknown"
+  },
+  "system": {
+    "cpu": "CPU",
+    "cpuUsage": "CPU Usage (%)",
+    "cpuTemp": "CPU Temperature (°C)",
+    "cpuFreq": "CPU Frequency (MHz)",
+    "gpu": "GPU",
+    "gpuUsage": "GPU Usage (%)",
+    "gpuTemp": "GPU Temperature (°C)",
+    "memoryUsageGb": "Memory Usage (GB)"
+  },
+  "battery": {
+    "timeToEmpty": "Time to empty: %1",
+    "timeToFull": "Time to full: %1",
+    "energy": "Energy: %1/%2 Wh (%3 W)",
+    "percent": "%1%"
+  },
+  "network": {
+    "ip": "IP: %1",
+    "country": "Country: %1, %2 (%3)",
+    "timezone": "Timezone: %1",
+    "isp": "ISP: %1"
+  },
+  "chart": {
+    "tooltip": "X: %1\nY: %2"
+  },
+  "language": {
+    "item": "%1 - %2",
+    "english": "English",
+    "englishUs": "English (US)",
+    "russian": "Russian"
+  },
+  "units": {
+    "gb": "GB"
+  }
+}

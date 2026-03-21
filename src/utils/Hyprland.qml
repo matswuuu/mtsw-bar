@@ -4,6 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
+import qs.i18n
 
 Singleton {
     property var translations: {
@@ -11,8 +12,8 @@ Singleton {
         "ru": "ru"
     }
     property var fullTranslations: {
-        "us": "English",
-        "ru": "Russian"
+        "us": I18n.t("language.english"),
+        "ru": I18n.t("language.russian")
     }
 
     // Json object with keyboard properties 

@@ -6,6 +6,7 @@ import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 import qs.element
 import qs.theme
+import qs.i18n
 import qs.utils
 import qs.services.battery
 
@@ -13,9 +14,20 @@ StyledPopup {
     readonly property var theme: Themes.active
 
     property var device: Battery.device
-    property string timeToEmpty: `Time to empty: ${Formatter.formatTime(device.timeToEmpty)}`
-    property string timeToFull: `Time to full: ${Formatter.formatTime(device.timeToFull)}`
-    property string energy: `Energy: ${device.energy.toFixed(0)}/${device.energyCapacity.toFixed(0)} Wh (${device.changeRate.toFixed(0)} W)`
+    property string timeToEmpty: I18n.t(
+        "battery.timeToEmpty",
+        Formatter.formatTime(device.timeToEmpty)
+    )
+    property string timeToFull: I18n.t(
+        "battery.timeToFull",
+        Formatter.formatTime(device.timeToFull)
+    )
+    property string energy: I18n.t(
+        "battery.energy",
+        device.energy.toFixed(0),
+        device.energyCapacity.toFixed(0),
+        device.changeRate.toFixed(0)
+    )
 
     visible: Battery.present
 
@@ -36,6 +48,6 @@ StyledPopup {
     }
 
     StyledText {
-        text: Battery.percentage + "%"
+        text: I18n.t("battery.percent", Battery.percentage)
     }
 }

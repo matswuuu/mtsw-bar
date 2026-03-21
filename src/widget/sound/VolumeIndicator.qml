@@ -3,12 +3,13 @@ import QtQuick.Layouts
 import Quickshell
 import qs.element.osd as Osd
 import qs.services.sound
+import qs.i18n
 import qs.utils
 
 Osd.DisplayIndicator {
     id: soundIndicator
     Layout.alignment: Qt.AlignHCenter
-    title: "Volume"
+    title: I18n.t("ui.volume")
     icon: Sound.getOutputSymbol()
 
     Connections {

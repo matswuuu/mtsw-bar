@@ -6,6 +6,7 @@ import Quickshell
 import Quickshell.Widgets
 import qs.widget
 import qs.element
+import qs.i18n
 import qs.utils
 import qs.services.system
 
@@ -13,7 +14,7 @@ ResourceWidget {
     usageText: Formatter.formatKBtoGB(MemoryUsage.memoryUsed)
     diagrams: [
         {
-            "title": "Memory Usage (GB)",
+            "title": I18n.t("system.memoryUsageGb"),
             "stepX": 10,
             "maxX": MemoryUsage.maxHistory,
             "maxY": MemoryUsage.memoryTotal,

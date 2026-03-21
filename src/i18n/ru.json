@@ -1,0 +1,42 @@
+{
+  "ui": {
+    "brightness": "Яркость",
+    "volume": "Громкость",
+    "untitled": "Без названия",
+    "unknown": "Неизвестно"
+  },
+  "system": {
+    "cpu": "ЦП",
+    "cpuUsage": "Загрузка ЦП (%)",
+    "cpuTemp": "Температура ЦП (°C)",
+    "cpuFreq": "Частота ЦП (МГц)",
+    "gpu": "ГП",
+    "gpuUsage": "Загрузка ГП (%)",
+    "gpuTemp": "Температура ГП (°C)",
+    "memoryUsageGb": "Память (ГБ)"
+  },
+  "battery": {
+    "timeToEmpty": "До разряда: %1",
+    "timeToFull": "До зарядки: %1",
+    "energy": "Энергия: %1/%2 Вт·ч (%3 Вт)",
+    "percent": "%1%"
+  },
+  "network": {
+    "ip": "IP: %1",
+    "country": "Страна: %1, %2 (%3)",
+    "timezone": "Часовой пояс: %1",
+    "isp": "Провайдер: %1"
+  },
+  "chart": {
+    "tooltip": "X: %1\nY: %2"
+  },
+  "language": {
+    "item": "%1 - %2",
+    "english": "Английский",
+    "englishUs": "Английский (США)",
+    "russian": "Русский"
+  },
+  "units": {
+    "gb": "ГБ"
+  }
+}

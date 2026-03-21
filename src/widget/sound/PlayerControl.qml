@@ -7,6 +7,7 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import qs.element
+import qs.i18n
 import qs.utils
 import qs.theme
 import qs.services.sound
@@ -56,7 +57,7 @@ WrapperRectangle {
                 spacing: 4
 
                 StyledText {
-                    text: MprisUtil.getTitle(64, "Untitled")
+                    text: MprisUtil.getTitle(64, I18n.t("ui.untitled"))
                     font {
                         pixelSize: 18
                     }
@@ -64,7 +65,7 @@ WrapperRectangle {
                     Layout.fillWidth: true
                 }
                 StyledText {
-                    text: MprisUtil.getArtist(64, "Unknown")
+                    text: MprisUtil.getArtist(64, I18n.t("ui.unknown"))
                 }
             }
 

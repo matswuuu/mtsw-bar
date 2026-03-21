@@ -6,15 +6,21 @@ import QtCore
 import QtQuick
 
 Singleton {
+    id: root
+
     readonly property string homeDir: StandardPaths.writableLocation(
         StandardPaths.HomeLocation
     )
+    readonly property string path: homeDir + "/.config/mtsw-bar"
 
     property var config: {
         const defaultConfig = {
+            language: "en",
             monitors: [],
             bar: {
                 tray: {
+                    colorization: 1,
+                    colorizationColor: "#ffffff",
                     iconOrder: []
                 }
             }
@@ -64,8 +70,8 @@ Singleton {
         return result
     }
 
-FileView {
+    FileView {
         id: configFile
-        path: homeDir + "/.config/mtsw-bar/config.json"
+        path: `${root.path}/config.json`
     }
 }

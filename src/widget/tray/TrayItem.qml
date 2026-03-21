@@ -4,6 +4,7 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
+import qs.config
 
 MouseArea {
     readonly property var theme: Themes.active
@@ -47,7 +48,7 @@ MouseArea {
     MultiEffect {
         source: trayIcon
         anchors.fill: trayIcon
-        colorization: 1.0
-        colorizationColor: "#ffffff"
+        colorization: Config.config.bar.tray.colorization
+        colorizationColor: Config.config.bar.tray.colorizationColor
     }
 }

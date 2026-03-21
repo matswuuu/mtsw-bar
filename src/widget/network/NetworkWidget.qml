@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Widgets
 import qs.element
 import qs.theme
+import qs.i18n
 import qs.utils
 import qs.services.network
 
@@ -20,10 +21,15 @@ StyledPopup {
 
             StyledText {
                 text: [
-                    `IP: ${IpInfo.ip}`,
-                    `Country: ${IpInfo.country}, ${IpInfo.city} (${IpInfo.countryCode})`,
-                    `Timezone: ${IpInfo.timezone}`,
-                    `ISP: ${IpInfo.isp}`
+                    I18n.t("network.ip", IpInfo.ip),
+                    I18n.t(
+                        "network.country",
+                        IpInfo.country,
+                        IpInfo.city,
+                        IpInfo.countryCode
+                    ),
+                    I18n.t("network.timezone", IpInfo.timezone),
+                    I18n.t("network.isp", IpInfo.isp)
                 ].join("\n")
             }
         }

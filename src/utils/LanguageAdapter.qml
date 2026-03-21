@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import qs.i18n
 
 Singleton {
     property var translations: {
@@ -12,10 +13,10 @@ Singleton {
         "Russian": "ru"
     }
     property var fullTranslations: {
-        "us": "English (US)",
-        "English (US)": "English (US)",
-        "ru": "Russian",
-        "Russian": "Russian"
+        "us": I18n.t("language.englishUs"),
+        "English (US)": I18n.t("language.englishUs"),
+        "ru": I18n.t("language.russian"),
+        "Russian": I18n.t("language.russian")
     }
 
     property list<string> layouts: Session.getAdapter().layouts

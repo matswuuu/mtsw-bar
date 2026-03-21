@@ -1,0 +1,3 @@
+module qs.i18n
+
+singleton I18n I18n.qml

@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Widgets
 import qs.element
 import qs.theme
+import qs.i18n
 import qs.utils
 
 StyledPopup {
@@ -21,7 +22,11 @@ StyledPopup {
             Repeater {
                 model: LanguageAdapter.layouts
                 delegate: StyledText {
-                    text: `${modelData} - ${LanguageAdapter.fullTranslations[modelData]}`
+                    text: I18n.t(
+                        "language.item",
+                        modelData,
+                        LanguageAdapter.fullTranslations[modelData]
+                    )
                     color: modelData === LanguageAdapter.activeLayout ? theme.textColor2 : theme.textColor
                 }
             }

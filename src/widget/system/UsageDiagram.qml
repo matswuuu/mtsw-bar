@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell
 import qs.element
+import qs.i18n
 
 Item {
     property var points: []
@@ -200,7 +201,11 @@ Item {
                     }
 
                     if (closestPoint && closestPoint.x != -1 && closestPoint.y != -1) {
-                        chartToolTip.text = `X: ${xFormatter(closestPoint.x)}\nY: ${yFormatter(closestPoint.y)}`
+                        chartToolTip.text = I18n.t(
+                            "chart.tooltip",
+                            xFormatter(closestPoint.x),
+                            yFormatter(closestPoint.y)
+                        )
                         chartToolTip.x = mouse.x + 10
                         chartToolTip.y = mouse.y - 40
                         chartToolTip.visible = true

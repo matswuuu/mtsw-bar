@@ -3,12 +3,13 @@ import QtQuick.Layouts
 import Quickshell
 import qs.element.osd as Osd
 import qs.services.brightness
+import qs.i18n
 import qs.utils
 
 Osd.DisplayIndicator {
     id: brightnessIndicator
     Layout.alignment: Qt.AlignHCenter
-    title: "Brightness"
+    title: I18n.t("ui.brightness")
     icon: Brightness.getSymbol()
 
     Connections {
