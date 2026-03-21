@@ -18,10 +18,8 @@ RowLayout {
     property string artist: MprisUtil.getArtist(artistLength, "")
 
     RowLayout {
-        spacing: 4
-
         StyledText {
-            text: `${title}-${artist}`
+            text: `${title} - ${artist}`
             visible: title !== "" && artist !== ""
         }
     }
