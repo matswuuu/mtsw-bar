@@ -5,7 +5,8 @@ import Quickshell.Io
 import QtQuick
 import QtQuick
 
-Singleton {
+Singleton
+{
     property var processes: []
 
     Process {

@@ -15,9 +15,15 @@ TableView {
 
     model: TableModel {
         id: tableModel
-        TableModelColumn { display: "pid" }
-        TableModelColumn { display: "name" }
-        TableModelColumn { display: "percent" }
+        TableModelColumn {
+            display: "pid"
+        }
+        TableModelColumn {
+            display: "name"
+        }
+        TableModelColumn {
+            display: "percent"
+        }
     }
 
     delegate: WrapperRectangle {

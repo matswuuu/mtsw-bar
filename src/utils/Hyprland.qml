@@ -6,7 +6,8 @@ import Quickshell.Io
 import Quickshell.Hyprland
 import qs.i18n
 
-Singleton {
+Singleton
+{
     property var translations: {
         "us": "eng",
         "ru": "ru"

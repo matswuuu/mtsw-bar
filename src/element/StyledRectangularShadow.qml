@@ -2,7 +2,7 @@ import QtQuick.Effects
 import Quickshell
 
 RectangularShadow {
-    required property var target 
+    required property var target
 
     anchors.fill: target
     offset.x: 6

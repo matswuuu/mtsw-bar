@@ -5,7 +5,8 @@ import Quickshell.Io
 import QtQuick
 import QtQuick
 
-Singleton {
+Singleton
+{
     property int maxHistory: 60
 
     property int maxUsage: 100
@@ -19,8 +20,14 @@ Singleton {
     property bool isPresented: nvidia
     property bool nvidia
 
-    property list<int> usageHistory: []
-    property list<int> tempHistory: []
+    property
+        list < int > usageHistory
+    :
+    []
+    property
+        list < int > tempHistory
+    :
+    []
 
     function pushToHistory(array, value) {
         if (array.length >= maxHistory)
@@ -66,7 +73,7 @@ Singleton {
                     1
                 )
             }
-        } 
+        }
     }
 
     Timer {

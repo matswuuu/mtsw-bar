@@ -12,7 +12,7 @@ import qs.services.system
 
 ResourceWidget {
     visible: GpuUsage.isPresented
-    title: I18n.t("system.gpu")   
+    title: I18n.t("system.gpu")
     usageText: GpuUsage.gpuUsage + usageSymbol
     tempText: GpuUsage.gpuTemp + tempSymbol
     tempColor: GpuUsage.tempColor

@@ -22,7 +22,7 @@ WrapperRectangle {
         for (let i = 0; i <= maxX; i++) {
             const x = i
             const y = i >= history.length ? -1 : history[i]
-            points.push({ x: x, y: y })
+            points.push({x: x, y: y})
         }
 
         return points
@@ -54,7 +54,7 @@ WrapperRectangle {
         }
 
         MemoryWidget {
-            
+
         }
     }
 }

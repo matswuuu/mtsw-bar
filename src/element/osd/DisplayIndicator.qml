@@ -18,10 +18,6 @@ WrapperRectangle {
     margin: theme.margin + 4
     visible: false
 
-    // StyledRectangularShadow {
-    //     target: layout
-    // }
-
     function show() {
         if (!playAnimation) return;
         fadeAnim.stop();
@@ -74,9 +70,15 @@ WrapperRectangle {
 
     SequentialAnimation on opacity {
         id: fadeAnim
-        PropertyAction { value: 1 }
-        PauseAnimation { duration: 1000 }
-        PropertyAnimation { to: 0; duration: 200 }
+        PropertyAction {
+            value: 1
+        }
+        PauseAnimation {
+            duration: 1000
+        }
+        PropertyAnimation {
+            to: 0; duration: 200
+        }
         onFinished: {
             root.visible = false
         }

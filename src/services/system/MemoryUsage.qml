@@ -4,19 +4,23 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 
-Singleton {
+Singleton
+{
     property double memoryTotal: 1
-	property double memoryFree: 1
-	property double memoryUsed: memoryTotal - memoryFree
+    property double memoryFree: 1
+    property double memoryUsed: memoryTotal - memoryFree
     property double memoryUsedPercentage: memoryUsed / memoryTotal
 
     property double swapTotal: 1
-	property double swapFree: 1
-	property double swapUsed: swapTotal - swapFree
+    property double swapFree: 1
+    property double swapUsed: swapTotal - swapFree
     property double swapUsedPercentage: swapTotal > 0 ? (swapUsed / swapTotal) : 0
 
     property int maxHistory: 60
-    property list<int> usageHistory: []
+    property
+        list < int > usageHistory
+    :
+    []
 
     function pushToHistory(array, value) {
         if (array.length >= maxHistory)
@@ -24,9 +28,9 @@ Singleton {
         array.push(value)
     }
 
-    FileView { 
+    FileView {
         id: fileMeminfo
-        path: "/proc/meminfo" 
+        path: "/proc/meminfo"
     }
 
     Timer {

@@ -5,8 +5,12 @@ import Quickshell.Io
 import Quickshell.Services.Mpris
 import QtQuick
 
-Singleton {
-    property list<var> players: Mpris.players.values
+Singleton
+{
+    property
+        list <
+    var >
+    players: Mpris.players.values
     property MprisPlayer activePlayer: players.length >= 1 ? players[0] : null
 
     function getTitle(length: int, ifNull: string): string {
@@ -27,7 +31,7 @@ Singleton {
 
     function getPlayedSeconds() {
         if (!activePlayer) return 0;
-        
+
         const pos = activePlayer.position;
         const total = getTotalSeconds();
         return pos > total ? pos - total : pos;

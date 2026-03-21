@@ -11,7 +11,7 @@ import qs.utils
 import qs.services.system
 
 ResourceWidget {
-    title: I18n.t("system.cpu")   
+    title: I18n.t("system.cpu")
     usageText: CpuUsage.cpuUsage + usageSymbol
     tempText: CpuUsage.cpuTemp + tempSymbol
     tempColor: CpuUsage.tempColor

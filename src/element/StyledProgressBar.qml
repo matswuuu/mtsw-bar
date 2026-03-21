@@ -20,13 +20,15 @@ ProgressBar {
             height: control.implicitHeight
             radius: height / 2
             width: control.indeterminate
-                   ? parent.width * 0.3
-                   : control.visualPosition * parent.width
+                ? parent.width * 0.3
+                : control.visualPosition * parent.width
             x: control.indeterminate ? animX : 0
             color: Material.accent
 
             Behavior on width {
-                NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
+                NumberAnimation {
+                    duration: 150; easing.type: Easing.InOutQuad
+                }
             }
 
             property real animX: 0

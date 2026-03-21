@@ -74,5 +74,5 @@ StyledPopup {
             text: tempText
             color: tempColor
         }
-    }  
+    }
 }

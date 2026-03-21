@@ -4,7 +4,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 
-Singleton {
+Singleton
+{
     property string activeLayout: ""
     property var layouts: []
 

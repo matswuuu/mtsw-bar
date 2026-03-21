@@ -5,7 +5,8 @@ import Quickshell.Io
 import QtQuick
 import QtQuick
 
-Singleton {
+Singleton
+{
     property int maxHistory: 60
 
     property color tempColor
@@ -21,9 +22,18 @@ Singleton {
     property int maxTemp: 100
     property int cpuTemp: 1
 
-    property list<int> usageHistory: []
-    property list<int> tempHistory: []
-    property list<int> freqHistory: []
+    property
+        list < int > usageHistory
+    :
+    []
+    property
+        list < int > tempHistory
+    :
+    []
+    property
+        list < int > freqHistory
+    :
+    []
     property int prevIdle: 0
     property int prevTotal: 0
 
@@ -122,17 +132,17 @@ Singleton {
     }
 
     // Frequency
-    FileView { 
+    FileView {
         id: fileMinFreq;
-        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq" 
+        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq"
     }
-    FileView { 
+    FileView {
         id: fileMaxFreq;
-        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq" 
+        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"
     }
-    FileView { 
+    FileView {
         id: fileCurFreq;
-        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq" 
+        path: "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"
     }
 
     Timer {

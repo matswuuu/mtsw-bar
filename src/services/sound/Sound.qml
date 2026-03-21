@@ -7,8 +7,9 @@ import Quickshell.Io
 import Quickshell.Widgets
 import qs.utils
 
-Singleton {
-    id: root 
+Singleton
+{
+    id: root
 
     property string outputMutedSymbol: "volume_off"
     property var outputSymbols: ({

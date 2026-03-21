@@ -4,7 +4,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 
-Singleton {
+Singleton
+{
     property string ip
     property string country
     property string countryCode
@@ -26,7 +27,7 @@ Singleton {
                     city = info.city || "?"
                     timezone = info.timezone || "?"
                     isp = `${info.isp} (${info.as})` || "?"
-                } catch(e) {
+                } catch (e) {
                     console.error("Failed to parse IP info:", e)
                 }
             }

@@ -22,11 +22,11 @@ PanelWindow {
         }
 
         VolumeIndicator {
-            
+
         }
 
         BrightnessIndicator {
-            
+
         }
     }
 }

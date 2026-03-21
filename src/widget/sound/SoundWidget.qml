@@ -22,7 +22,7 @@ WrapperRectangle {
         StyledPopup {
             visible: MprisUtil.activePlayer != null
             contentItem: PlayerControl {
-        
+
             }
 
             MprisWidget {
@@ -42,7 +42,7 @@ WrapperRectangle {
 
             RowLayout {
                 spacing: 4
-                
+
                 MaterialSymbol {
                     text: Sound.getOutputSymbol()
                     font.pixelSize: 18

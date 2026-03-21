@@ -5,7 +5,8 @@ import Quickshell.Io
 import QtCore
 import QtQuick
 
-Singleton {
+Singleton
+{
     id: root
 
     readonly property string homeDir: StandardPaths.writableLocation(

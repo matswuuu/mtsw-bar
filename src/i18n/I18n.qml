@@ -6,7 +6,8 @@ import Quickshell
 import Quickshell.Io
 import qs.config
 
-Singleton {
+Singleton
+{
     readonly property string homeDir: StandardPaths.writableLocation(
         StandardPaths.HomeLocation
     )

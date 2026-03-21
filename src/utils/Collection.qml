@@ -4,7 +4,8 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 
-Singleton {
+Singleton
+{
     function floorValue(map, value) {
         const keys = Object.keys(map).map(Number).sort((a, b) => a - b)
         let floorKey = 0

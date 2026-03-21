@@ -3,7 +3,8 @@ pragma Singleton
 import QtQuick
 import Quickshell
 
-Singleton {
+Singleton
+{
     property alias font: iconFont
 
     FontLoader {

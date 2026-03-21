@@ -33,7 +33,7 @@ WrapperRectangle {
         }
 
         BluetoothWidget {
-            
+
         }
     }
 }

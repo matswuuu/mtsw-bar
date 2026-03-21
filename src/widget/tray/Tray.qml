@@ -11,7 +11,10 @@ import qs.config
 WrapperRectangle {
     readonly property var theme: Themes.active
 
-    property list<SystemTrayItem> items: {
+    property
+        list < SystemTrayItem > items
+    :
+    {
         var items = [...SystemTray.items.values];
         return items.sort((a, b) => {
             const iconOrder = Config.config.bar.tray.iconOrder;

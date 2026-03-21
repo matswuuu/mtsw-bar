@@ -23,7 +23,7 @@ WrapperRectangle {
     margin: theme.margin + 4
 
     //   layer.enabled: true
-            // layer.smooth: true
+    // layer.smooth: true
 
     // MultiEffect {
     //     anchors.fill: player
@@ -99,7 +99,7 @@ WrapperRectangle {
                     MaterialSymbol {
                         id: skipNext
                         text: "skip_next"
-                    } 
+                    }
                 }
             }
         }

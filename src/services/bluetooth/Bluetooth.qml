@@ -5,7 +5,8 @@ import Quickshell.Io
 import Quickshell.Bluetooth
 import QtQuick
 
-Singleton {
+Singleton
+{
     property var stateSymbols: {
         0: "󰂲", // nf-md-bluetooth_off
         1: "󰂯", // nf-md-bluetooth

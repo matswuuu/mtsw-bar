@@ -5,7 +5,8 @@ import Quickshell
 import Quickshell.Io
 import qs.i18n
 
-Singleton {
+Singleton
+{
     property var translations: {
         "us": "eng",
         "English (US)": "eng",
@@ -19,7 +20,10 @@ Singleton {
         "Russian": I18n.t("language.russian")
     }
 
-    property list<string> layouts: Session.getAdapter().layouts
+    property
+        list < string > layouts
+    :
+    Session.getAdapter().layouts
     property string activeLayout: Session.getAdapter().activeLayout
     property string translatedLayout: activeLayout in translations ? translations[activeLayout] : activeLayout
 

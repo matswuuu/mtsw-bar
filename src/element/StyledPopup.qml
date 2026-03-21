@@ -47,7 +47,7 @@ WrapperMouseArea {
         appearAnim.stop();
         window.visible = false
     }
-    
+
     // Prevent from accidental movements
     Timer {
         interval: 10
@@ -92,14 +92,22 @@ WrapperMouseArea {
 
             SequentialAnimation on opacity {
                 id: appearAnim
-                PropertyAnimation { to: 1; duration: 200 }
+                PropertyAnimation {
+                    to: 1; duration: 200
+                }
             }
- 
+
             SequentialAnimation on opacity {
                 id: fadeAnim
-                PropertyAnimation { to: 1; duration: 200 }
-                PauseAnimation { duration: 400 }
-                PropertyAnimation { to: 0; duration: 200 }
+                PropertyAnimation {
+                    to: 1; duration: 200
+                }
+                PauseAnimation {
+                    duration: 400
+                }
+                PropertyAnimation {
+                    to: 0; duration: 200
+                }
                 onFinished: {
                     window.visible = false
                 }

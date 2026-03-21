@@ -12,7 +12,7 @@ Item {
     property int paddingRight
     property int paddingTop
     property int paddingBottom
-    
+
     property int minX
     property int minY
     property int maxX
@@ -61,35 +61,35 @@ Item {
             renderTarget: Canvas.FramebufferObject
             renderStrategy: Canvas.Cooperative
 
-            function getScaleX() { 
-                return (width - root.paddingLeft - root.paddingRight) / (root.maxX || 1) 
+            function getScaleX() {
+                return (width - root.paddingLeft - root.paddingRight) / (root.maxX || 1)
             }
-            
-            function getScaleY() { 
-                return (height - root.paddingTop - root.paddingBottom) / (root.maxY || 1) 
+
+            function getScaleY() {
+                return (height - root.paddingTop - root.paddingBottom) / (root.maxY || 1)
             }
 
             function mapX(x) {
-                return root.paddingLeft + x * getScaleX() 
+                return root.paddingLeft + x * getScaleX()
             }
 
             function mapY(y) {
-                return height - root.paddingBottom - y * getScaleY() 
+                return height - root.paddingBottom - y * getScaleY()
             }
 
             onPaint: {
                 const ctx = getContext("2d")
-                ctx.clearRect(0, 0, width, height) 
+                ctx.clearRect(0, 0, width, height)
 
                 const w = width
                 const h = height
-                
+
                 // Map properties to local constants for readability
                 const pL = root.paddingLeft
                 const pR = root.paddingRight
                 const pT = root.paddingTop
                 const pB = root.paddingBottom
-                
+
                 const fontPx = root.fontSize
 
                 ctx.font = `${fontPx}px JetBrains Mono`
@@ -193,7 +193,7 @@ Item {
                         const px = canvas.mapX(pt.x)
                         const py = canvas.mapY(pt.y)
                         const dist = Math.pow(mouse.x - px, 2) + Math.pow(mouse.y - py, 2)
-                        
+
                         if (dist < minDist) {
                             minDist = dist
                             closestPoint = pt

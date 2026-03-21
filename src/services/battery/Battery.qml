@@ -4,7 +4,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.UPower
 
-Singleton {
+Singleton
+{
     property bool present: false
     property var device: UPower.displayDevice
     property int percentage

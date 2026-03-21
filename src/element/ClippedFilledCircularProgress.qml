@@ -19,7 +19,8 @@ Item {
     property int animationDuration: 800
     property var easingType: Easing.OutCubic
     property bool accountForLightBleeding: true
-    default property Item textMask: Item {
+    default property Item textMask: Item
+    {
         width: implicitSize
         height: implicitSize
         StyledText {

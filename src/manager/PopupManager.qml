@@ -2,7 +2,8 @@ pragma Singleton
 import QtQuick
 import Quickshell
 
-Singleton {
+Singleton
+{
     property Item currentPopup: null
 
     function registerPopup(popup) {

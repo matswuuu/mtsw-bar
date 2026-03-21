@@ -17,7 +17,7 @@ StyledPopup {
 
         ColumnLayout {
             spacing: 4
-            
+
         }
     }
 

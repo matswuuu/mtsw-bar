@@ -7,7 +7,8 @@ import Quickshell.Io
 import Quickshell.Widgets
 import qs.utils
 
-Singleton {
+Singleton
+{
     property string offSymbol: "󰖪"
     property string lanSymbol: ""
     property var wifiSymbols: ({

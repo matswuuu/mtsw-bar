@@ -5,7 +5,8 @@ import Quickshell
 import Quickshell.Io
 import qs.utils
 
-Singleton {
+Singleton
+{
     id: root
 
     property var symbols: ({

@@ -5,7 +5,8 @@ import Quickshell.Io
 import QtQuick
 import qs.i18n
 
-Singleton {
+Singleton
+{
     function formatKBtoGB(kb: int): string {
         return (kb / 1024 / 1024).toFixed(1).replace(/([^.])0+$/, "$1") + I18n.t("units.gb");
     }
