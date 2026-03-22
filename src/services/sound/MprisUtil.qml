@@ -4,29 +4,20 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Mpris
 import QtQuick
+import qs.config
 
-Singleton
-{
-    property
-        list <
-    var >
-    players: Mpris.players.values
-    property MprisPlayer activePlayer: players.length >= 1 ? players[0] : null
+Singleton {
+    readonly property list<var> players: Mpris.players.values
+    readonly property MprisPlayer activePlayer: players.length >= 1 ? players[0] : null
+    readonly property string title: activePlayer ? activePlayer.trackTitle ?? "" : ""
+    readonly property string artist: activePlayer ? activePlayer.trackArtist?.toString() ?? "" : ""
+    readonly property string image: activePlayer ? activePlayer.trackArtUrl : null
 
-    function getTitle(length: int, ifNull: string): string {
-        if (!activePlayer) return ifNull;
-        const title = activePlayer.trackTitle;
-        return title ? title.substring(0, length + 1) || ifNull : ifNull;
-    }
+    readonly property string shortTitle: substringOr(title, Config.config.bar.sound.titleLength, "?")
+    readonly property string shortArtist: substringOr(artist, Config.config.bar.sound.artistLength, "?")
 
-    function getArtist(length: int, ifNull: string): string {
-        if (!activePlayer) return ifNull;
-        const artist = activePlayer.trackArtist;
-        return artist ? artist.toString().substring(0, length + 1) || ifNull : ifNull;
-    }
-
-    function getImage() {
-        return activePlayer ? activePlayer.trackArtUrl : null;
+    function substringOr(s: string, length: int, ifNull: string): string {
+        return s ? s.substring(0, length + 1) || ifNull : ifNull
     }
 
     function getPlayedSeconds() {

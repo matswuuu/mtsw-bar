@@ -5,22 +5,11 @@ import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import qs.element
 import qs.utils
-import qs.theme
+import qs.config
 import qs.services.sound
 
 RowLayout {
-    readonly property Theme theme: Themes.active
-
-    property int titleLength: 32
-    property int artistLength: 16
-
-    property string title: MprisUtil.getTitle(titleLength, "")
-    property string artist: MprisUtil.getArtist(artistLength, "")
-
-    RowLayout {
-        StyledText {
-            text: `${title} - ${artist}`
-            visible: title !== "" && artist !== ""
-        }
+    StyledText {
+        text: `${MprisUtil.shortTitle} - ${MprisUtil.shortArtist}`
     }
 }

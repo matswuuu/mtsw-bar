@@ -20,7 +20,7 @@ WrapperRectangle {
         spacing: 8
 
         StyledPopup {
-            visible: MprisUtil.activePlayer != null
+            visible: MprisUtil.shortTitle !== "?" || MprisUtil.shortArtist !== "?"
             contentItem: PlayerControl {
 
             }

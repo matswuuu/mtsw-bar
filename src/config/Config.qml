@@ -23,6 +23,10 @@ Singleton
                     colorization: 1,
                     colorizationColor: "#ffffff",
                     iconOrder: []
+                },
+                sound: {
+                    titleLength: 32,
+                    artistLength: 16
                 }
             }
         }
