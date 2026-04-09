@@ -47,5 +47,5 @@ find /usr/share/applications "$HOME/.local/share/applications" -name '*.desktop'
     [ -z "$name" ] && continue
 
     resolved=$(resolve_icon "$icon")
-    printf '%s\t%s\t%s\n' "$name" "$resolved" "$f"
+    printf '%s\t%s\t%s\n' "$name" "$resolved" "$f"33333
 done
