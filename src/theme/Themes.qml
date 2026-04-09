@@ -11,6 +11,9 @@ Singleton
         interactiveColor: "#c6a0f6"
         textColor: "#cad3f5"
         textColor2: "#a5adcb"
+        red: "#ed8796"
+        yellow: "#eed49f"
+        green: "#a6da95"
     }
 
     property var active: macchiato

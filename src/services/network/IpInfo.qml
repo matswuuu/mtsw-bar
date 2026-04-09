@@ -4,8 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 
-Singleton
-{
+Singleton {
     property string ip
     property string country
     property string countryCode

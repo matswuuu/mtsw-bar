@@ -28,16 +28,8 @@ Singleton {
                     artistLength: 16
                 },
                 network: {
-                    hosts: [
-                        {
-                            host: " ",
-                            pingCommand: "nc -w 5 -uvz $HOST 443"
-                        },
-                        {
-                            host: " ",
-                            pingCommand: "nc -w 5 -uvz $HOST 44443"
-                        }
-                    ]
+                    updateInterval: 15,
+                    hosts: []
                 }
             }
         }

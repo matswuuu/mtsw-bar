@@ -35,16 +35,14 @@ Singleton {
         }
     }
 
-    function updateHostState(host, state) {
-        let newStates = hostStates || {}; 
-        newStates[host.host] = {
-            host: host,
-            state: state
-        }
-        hostStates = newStates;
-        for (const h in hostStates) {
-            print(`${h}: ${hostStates[h].state == NetworkState.CONNECTED ? "CONNECTED" : "TIMEOUT"}`)
-        }
+    function updateHostState(host, state, latency) {
+        hostStates = Object.assign({}, hostStates, {
+            [host.host]: {
+                host: host,
+                state: state,
+                latency: latency
+            }
+        })
     }
 
     Process {
@@ -86,11 +84,15 @@ Singleton {
 
             command: ["sh", "-c", pingCommand]
             running: true
-            onExited: (code, status) => {
-                const state = code == 0
-                    ? NetworkState.CONNECTED
-                    : NetworkState.TIMEOUT;
-                updateHostState(host, state)
+            stdout: StdioCollector {
+                onStreamFinished: {
+                    const json = JSON.parse(this.text);
+                    const state = json.success === true ? NetworkState.CONNECTED : NetworkState.TIMEOUT;
+                    const latency = json.latency;
+                    updateHostState(host, state, latency);
+                }
+            }
+            onExited: {
                 destroy()
             }
         }
@@ -107,14 +109,13 @@ Singleton {
     }
 
     Timer {
-        // interval: 60 * 1000
-        interval: 1000
+        interval: Config.config.bar.network.updateInterval * 1000
         running: true
         repeat: true
         onTriggered: {
             const hosts = Config.config.bar.network.hosts;
             for (const host of hosts) {
-                const obj = hostCheckComponent.createObject(null, {
+                hostCheckComponent.createObject(null, {
                     host: host
                 })
             }
