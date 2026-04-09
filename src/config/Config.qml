@@ -5,8 +5,7 @@ import Quickshell.Io
 import QtCore
 import QtQuick
 
-Singleton
-{
+Singleton {
     id: root
 
     readonly property string homeDir: StandardPaths.writableLocation(
@@ -27,13 +26,24 @@ Singleton
                 sound: {
                     titleLength: 32,
                     artistLength: 16
+                },
+                network: {
+                    hosts: [
+                        {
+                            host: " ",
+                            pingCommand: "nc -w 5 -uvz $HOST 443"
+                        },
+                        {
+                            host: " ",
+                            pingCommand: "nc -w 5 -uvz $HOST 44443"
+                        }
+                    ]
                 }
             }
         }
 
-        const text = configFile.text()
-
         try {
+            const text = configFile.text()
             const parsed = JSON.parse(text)
             return mergeDefaults(defaultConfig, parsed)
         } catch (e) {

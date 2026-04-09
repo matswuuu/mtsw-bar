@@ -6,9 +6,9 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
 import qs.utils
+import qs.config
 
-Singleton
-{
+Singleton {
     property string offSymbol: "󰖪"
     property string lanSymbol: ""
     property var wifiSymbols: ({
@@ -22,6 +22,7 @@ Singleton
     property int networkStrength
     property int type: NetworkType.NONE
     property string connectionSymbol: getFormattedConnection()
+    property var hostStates: {}
 
     function getFormattedConnection(): string {
         switch (type) {
@@ -31,6 +32,18 @@ Singleton
                 return lanSymbol
             case 2:
                 return Collection.floorValue(wifiSymbols, networkStrength)
+        }
+    }
+
+    function updateHostState(host, state) {
+        let newStates = hostStates || {}; 
+        newStates[host.host] = {
+            host: host,
+            state: state
+        }
+        hostStates = newStates;
+        for (const h in hostStates) {
+            print(`${h}: ${hostStates[h].state == NetworkState.CONNECTED ? "CONNECTED" : "TIMEOUT"}`)
         }
     }
 
@@ -64,6 +77,25 @@ Singleton
         }
     }
 
+    Component {
+        id: hostCheckComponent
+
+        Process {
+            property var host
+            property string pingCommand: host.pingCommand.replace("$HOST", host.host);
+
+            command: ["sh", "-c", pingCommand]
+            running: true
+            onExited: (code, status) => {
+                const state = code == 0
+                    ? NetworkState.CONNECTED
+                    : NetworkState.TIMEOUT;
+                updateHostState(host, state)
+                destroy()
+            }
+        }
+    }
+
     Timer {
         interval: 2000
         running: true
@@ -71,6 +103,21 @@ Singleton
         onTriggered: {
             typeProcess.running = true
             strengthProcess.running = true
+        }
+    }
+
+    Timer {
+        // interval: 60 * 1000
+        interval: 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            const hosts = Config.config.bar.network.hosts;
+            for (const host of hosts) {
+                const obj = hostCheckComponent.createObject(null, {
+                    host: host
+                })
+            }
         }
     }
 }
