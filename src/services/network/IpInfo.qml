@@ -25,7 +25,7 @@ Singleton {
                     countryCode = info.countryCode || "?"
                     city = info.city || "?"
                     timezone = info.timezone || "?"
-                    isp = `${info.isp} (${info.as})` || "?"
+                    isp = info.as || "?"
                 } catch (e) {
                     console.error("Failed to parse IP info:", e)
                 }
