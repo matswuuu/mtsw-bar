@@ -6,6 +6,8 @@ BrightnessIndicator brightness/BrightnessIndicator.qml
 CalendarWidget calendar/CalendarWidget.qml
 ClockWidget clock/ClockWidget.qml
 LanguageWidget language/LanguageWidget.qml
+LightColorWheel light/LightColorWheel.qml
+LightWidget light/LightWidget.qml
 NetworkWidget network/NetworkWidget.qml
 MprisWidget sound/MprisWidget.qml
 PlayerControl sound/PlayerControl.qml

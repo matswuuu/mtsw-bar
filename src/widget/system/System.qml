@@ -32,6 +32,10 @@ WrapperRectangle {
 
         }
 
+        LightWidget {
+
+        }
+
         BluetoothWidget {
 
         }
