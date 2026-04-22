@@ -11,6 +11,7 @@ import qs.widget
 
 StyledPopup {
     id: root
+    enabled: tapoConfig.ip !== "" && tapoConfig.email !== "" && tapoConfig.password !== "";
 
     readonly property var theme: Themes.active
 
@@ -39,16 +40,7 @@ StyledPopup {
         runCommand(["brightness", Math.round(value).toString()]);
     }
 
-    function hasConfig() {
-        return tapoConfig.ip !== "" && tapoConfig.email !== "" && tapoConfig.password !== "";
-    }
-
     function runCommand(args) {
-        if (!hasConfig()) {
-            console.error("Tapo config is incomplete. Fill bar.light.tapo in config.json.");
-            return;
-        }
-
         if (commandInFlight) {
             return;
         }
