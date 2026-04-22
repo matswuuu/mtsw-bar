@@ -58,4 +58,6 @@ async def main() -> None:
         print(f"Command '{command}' failed: {e}", file=sys.stderr)
         sys.exit(1)
 
-asyncio.run(main())
+
+if __name__ == "__main__":
+    asyncio.run(main())
