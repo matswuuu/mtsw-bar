@@ -3,7 +3,6 @@ pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import QtQuick
 
 Singleton
 {
@@ -11,6 +10,9 @@ Singleton
 
     property color tempColor
     property int thermalZone
+    property bool hasTempSource: false
+    property bool useHwmon: false
+    property string hwmonPath
     // Usage
     property int maxUsage: 100
     property int cpuUsage: 0
@@ -22,16 +24,13 @@ Singleton
     property int maxTemp: 100
     property int cpuTemp: 1
 
-    property
-        list < int > usageHistory
+    property list < int > usageHistory
     :
     []
-    property
-        list < int > tempHistory
+    property list < int > tempHistory
     :
     []
-    property
-        list < int > freqHistory
+    property list < int > freqHistory
     :
     []
     property int prevIdle: 0
@@ -68,10 +67,18 @@ Singleton
     }
 
     function updateTemp() {
-        fileTemp.reload()
+        if (!hasTempSource) return
 
-        const tempRaw = Number(fileTemp.text()) || 0
-        cpuTemp = Math.floor(tempRaw / 1000)
+        if (useHwmon) {
+            fileHwmonTemp.reload()
+            const tempRaw = Number(fileHwmonTemp.text()) || 0
+            cpuTemp = Math.floor(tempRaw / 1000)
+        } else {
+            fileTemp.reload()
+            const tempRaw = Number(fileTemp.text()) || 0
+            cpuTemp = Math.floor(tempRaw / 1000)
+        }
+
         const percent = cpuTemp / maxTemp
         tempColor = Qt.rgba(
             (128 + 127 * percent) / 255,
@@ -113,9 +120,26 @@ Singleton
 
                     if (match) {
                         thermalZone = parseInt(zoneName.replace("thermal_zone", ""))
-                        timer.running = true
+                        hasTempSource = true
                         return
                     }
+                }
+                findHwmonProcess.running = true
+            }
+        }
+    }
+
+    Process {
+        id: findHwmonProcess
+        command: ["bash", "-c", "for d in /sys/class/hwmon/hwmon*; do if [ -f \"$d/name\" ]; then name=$(cat \"$d/name\"); if echo \"$name\" | grep -qi 'k10temp'; then echo \"$d\"; break; fi; fi; done"]
+        running: false
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const path = this.text.trim()
+                if (path.length > 0) {
+                    hwmonPath = path
+                    useHwmon = true
+                    hasTempSource = true
                 }
             }
         }
@@ -129,6 +153,11 @@ Singleton
     FileView {
         id: fileTemp
         path: "/sys/class/thermal/thermal_zone" + thermalZone + "/temp"
+    }
+
+    FileView {
+        id: fileHwmonTemp
+        path: hwmonPath.length > 0 ? hwmonPath + "/temp1_input" : ""
     }
 
     // Frequency
@@ -148,7 +177,7 @@ Singleton
     Timer {
         id: timer
         interval: 1000
-        running: false
+        running: true
         repeat: true
         onTriggered: {
             updateUsage();
