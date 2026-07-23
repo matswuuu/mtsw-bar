@@ -4,6 +4,7 @@ import Quickshell
 import qs.modules.bar
 import qs.element
 import qs.config
+import qs.widget.clipboard
 
 ShellRoot {
     Variants {
@@ -47,5 +48,9 @@ ShellRoot {
                 }
             }
         }
+    }
+
+    ClipboardPopup {
+        screen: Quickshell.screens[0]
     }
 }

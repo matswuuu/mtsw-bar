@@ -13,6 +13,7 @@
     "gpu": "ГП",
     "gpuUsage": "Загрузка ГП (%)",
     "gpuTemp": "Температура ГП (°C)",
+    "gpuFreq": "Частота ГП (МГц)",
     "memoryUsageGb": "Память (ГБ)"
   },
   "battery": {

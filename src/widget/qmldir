@@ -1,5 +1,6 @@
 module qs.widget
 
+clipboard clipboard/ClipboardPopup.qml
 BatteryWidget battery/BatteryWidget.qml
 BluetoothWidget bluetooth/BluetoothWidget.qml
 BrightnessIndicator brightness/BrightnessIndicator.qml

@@ -102,7 +102,7 @@ Singleton
         running: true
         stdout: StdioCollector {
             onStreamFinished: {
-                const types = ["cpu", "pkg", "core"]
+                const types = ["cpu", "pkg", "core", "k10temp", "amd"]
                 const lines = this.text.trim().split("\n")
                 for (let line of lines) {
                     let parts = line.split(":")

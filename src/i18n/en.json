@@ -13,6 +13,7 @@
     "gpu": "GPU",
     "gpuUsage": "GPU Usage (%)",
     "gpuTemp": "GPU Temperature (°C)",
+    "gpuFreq": "GPU Frequency (MHz)",
     "memoryUsageGb": "Memory Usage (GB)"
   },
   "battery": {

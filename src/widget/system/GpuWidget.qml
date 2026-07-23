@@ -21,8 +21,8 @@ ResourceWidget {
             "title": I18n.t("system.gpuUsage"),
             "stepX": 10,
             "maxX": GpuUsage.maxHistory,
-            "maxY": CpuUsage.maxUsage,
-            "history": CpuUsage.usageHistory
+            "maxY": GpuUsage.maxUsage,
+            "history": GpuUsage.usageHistory
         },
         {
             "title": I18n.t("system.gpuTemp"),
@@ -30,6 +30,14 @@ ResourceWidget {
             "maxX": GpuUsage.maxHistory,
             "maxY": GpuUsage.maxTemp,
             "history": GpuUsage.tempHistory
+        },
+        {
+            "title": I18n.t("system.gpuFreq"),
+            "stepX": 10,
+            "minY": GpuUsage.minGpuFreq,
+            "maxX": GpuUsage.maxHistory,
+            "maxY": GpuUsage.maxGpuFreq,
+            "history": GpuUsage.freqHistory
         }
     ]
 }
